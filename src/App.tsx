@@ -6,7 +6,7 @@ import UserDetails from './pages/UserDetails';
 
 const App = () => {
   return (
-     <BrowserRouter>
+    
     <Routes>
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<Login />} />
@@ -14,7 +14,7 @@ const App = () => {
       <Route path="/users" element={<Users />} />
       <Route path="/users/:id" element={<UserDetails />} />
     </Routes>
-    </BrowserRouter>
+  
   );
 };
 
