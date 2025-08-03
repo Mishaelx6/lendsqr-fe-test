@@ -1,5 +1,7 @@
 import '../styles/_navbar.scss';
 import { FiSearch, FiBell, FiChevronDown } from 'react-icons/fi';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 
 
 export const Navbar = () => {

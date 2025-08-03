@@ -1,75 +1,15 @@
-
-import { BsThreeDotsVertical } from 'react-icons/bs';
 import '../styles/UserTable.scss';
 
-const UsersTable = () => {
-  const users = [
-    {
-      organization: 'Lendsqr',
-      username: 'adedeji',
-      email: 'adedeji@lendsqr.com',
-      phone: '08012345678',
-      dateJoined: 'May 15, 2023',
-      status: 'Active',
-    },
-     {
-      organization: 'Lendsqr',
-      username: 'debby Ogana',
-      email: 'adedeji@lendsqr.com',
-      phone: '08012345678',
-      dateJoined: 'May 15, 2023',
-      status: 'Active',
-    },
-     {
-      organization: 'Lendsqr',
-      username: 'grace Effiom',
-      email: 'adedeji@lendsqr.com',
-      phone: '08012345678',
-      dateJoined: 'May 15, 2023',
-      status: 'Blacklisted',
-    },
-     {
-      organization: 'Lendsqr',
-      username: 'Tosin Dokunmu',
-      email: 'adedeji@lendsqr.com',
-      phone: '08012345678',
-      dateJoined: 'May 15, 2023',
-      status: 'Active',
-    },
-     {
-      organization: 'Lendsqr',
-      username: 'adedeji',
-      email: 'adedeji@lendsqr.com',
-      phone: '08012345678',
-      dateJoined: 'May 15, 2023',
-      status: 'pending',
-    },
-     {
-      organization: 'Lendsqr',
-      username: 'Grase Effiom',
-      email: 'adedeji@lendsqr.com',
-      phone: '08012345678',
-      dateJoined: 'May 15, 2023',
-      status: 'pending',
-    },
-     {
-      organization: 'Lendsqr',
-      username: 'tosin dokunmu',
-      email: 'adedeji@lendsqr.com',
-      phone: '08012345678',
-      dateJoined: 'May 15, 2023',
-      status: 'Active',
-    },
-     {
-      organization: 'Lendsqr',
-      username: 'Debby Ogana',
-      email: 'adedeji@lendsqr.com',
-      phone: '08012345678',
-      dateJoined: 'May 15, 2023',
-      status: 'Blacklisted',
-    },
-  ];
+interface User {
+  organization: string;
+  username: string;
+  email: string;
+  phone: string;
+  dateJoined: string;
+  status: string;
+}
 
+const UsersTable = ({ users }: { users: User[] }) => {
   return (
     <div className="users-table">
       <div className="table-controls">
@@ -97,30 +37,37 @@ const UsersTable = () => {
               <td>{u.phone}</td>
               <td>{u.dateJoined}</td>
               <td>
-                <span className={`status ${u.status.toLowerCase()}`}>{u.status}</span>
+                <span className={`status ${u.status?.toLowerCase() || 'unknown'}`}>
+               {u.status || 'Unknown'}
+             </span>
               </td>
               <td>
-                <BsThreeDotsVertical className="action-icon" />
+                <button
+                  onClick={() => {
+                    localStorage.setItem('selectedUser', JSON.stringify(u));
+                    window.location.href = '/users/:id';
+                  }}
+                  className="view-user-btn"
+                >
+                  View
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div className="table-footer">
-  <div className="rows-info">Showing 1–50 of 100</div>
-  <div className="pagination">
-    <button className="page-btn">&lt;</button>
-    <button className="page-btn active">1</button>
-    <button className="page-btn">2</button>
-    <button className="page-btn">3</button>
-    <button className="page-btn">4</button>
-    <button className="page-btn">5</button>
-    <span className="dots">...</span>
-    <button className="page-btn">10</button>
-    <button className="page-btn">&gt;</button>
-  </div>
-</div>
 
+      <div className="table-footer">
+        <div className="rows-info">Showing 1–{users.length} of {users.length}</div>
+        <div className="pagination">
+          <button className="page-btn">&lt;</button>
+          <button className="page-btn active">1</button>
+          <button className="page-btn">2</button>
+          <span className="dots">...</span>
+          <button className="page-btn">5</button>
+          <button className="page-btn">&gt;</button>
+        </div>
+      </div>
     </div>
   );
 };
