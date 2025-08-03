@@ -1,0 +1,73 @@
+@use './variables' as variables;
+
+.sidebar {
+  width: variables.$sidebar-width;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  border-right: 1px solid #e5e5e5;
+  padding: 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+  z-index: 100;
+   overflow-y: auto;
+  overflow-x: hidden;
+   scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+
+  .logo {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+
+    img {
+      height: 35px;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .section-title {
+      font-size: 0.7rem;
+      color: #999;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+      padding-left: 1rem;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.6rem 1rem;
+      font-size: 0.875rem;
+      color: #545f7d;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+
+      svg {
+        font-size: 1.1rem;
+        color: inherit;
+      }
+
+      &:hover {
+        background-color: #f5f7fd;
+      }
+
+      &.active {
+        background-color: #e7efff;
+        color: #213f7d;
+        font-weight: 600;
+      }
+    }
+  }
+}

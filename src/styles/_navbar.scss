@@ -1,0 +1,91 @@
+@use './variables' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: $sidebar-width;
+  right: 0;
+  height: $navbar-height;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 800;
+
+  .search-container {
+    margin-left: 2rem;
+    display: flex;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+
+    input {
+      border: none;
+      outline: none;
+      padding: 0 1rem;
+      font-size: 0.9rem;
+      background-color: white;
+      width: 250px;
+
+      &::placeholder {
+        color: #999;
+      }
+    }
+
+    .search-button {
+      background-color: $primary-color;
+      border: none;
+      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  }
+
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .docs-link {
+      font-size: 0.9rem;
+      color: #213f7d;
+      font-weight: 500;
+    }
+
+    .notifications {
+      font-size: 1.3rem;
+      color: #213f7d;
+      cursor: pointer;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+
+      .name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #213f7d;
+      }
+
+      .dropdown {
+        font-size: 1rem;
+        color: #555;
+        cursor: pointer;
+      }
+    }
+  }
+}

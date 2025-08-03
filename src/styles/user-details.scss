@@ -1,0 +1,159 @@
+.user-details-page {
+  .back-button {
+    background: none;
+    border: none;
+    color: #545f7d;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+
+  .header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+  }
+
+  .user-info-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .avatar-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #e6e6e6;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    .user-meta h2 {
+      margin: 0;
+      font-size: 1rem;
+      color: #213f7d;
+    }
+
+    .user-meta p {
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .user-tier {
+      p {
+        font-size: 0.75rem;
+        color: #999;
+      }
+
+      .stars {
+        .star {
+          font-size: 1rem;
+          color: #ccc;
+          margin-right: 0.2rem;
+
+          &.filled {
+            color: #e9b200;
+          }
+        }
+      }
+    }
+
+    .account-info h2 {
+      font-size: 1.3rem;
+      margin: 0;
+    }
+
+    .account-info p {
+      font-size: 0.85rem;
+      color: #999;
+    }
+  }
+
+  .user-actions {
+    display: flex;
+    gap: 1rem;
+
+    button {
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .blacklist {
+      background: transparent;
+      border: 1px solid #d30000;
+      color: #d30000;
+    }
+
+    .activate {
+      background: #39cdcc;
+      border: none;
+      color: white;
+    }
+  }
+  
+
+  .details-tabs {
+    display: flex;
+    gap: 2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+
+    .tab {
+      font-size: 0.85rem;
+      color: #545f7d;
+      cursor: pointer;
+      padding-bottom: 0.3rem;
+
+      &.active {
+        border-bottom: 2px solid #39cdcc;
+        color: #39cdcc;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .details-section {
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+
+    h3 {
+      font-size: 1rem;
+      color: #213f7d;
+      margin-bottom: 1rem;
+      
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+
+      .label {
+        font-size: 0.75rem;
+        color: #999;
+      }
+
+      p {
+        margin: 0.2rem 0;
+        font-size: 0.85rem;
+        color: #333;
+      }
+    }
+  }
+}
