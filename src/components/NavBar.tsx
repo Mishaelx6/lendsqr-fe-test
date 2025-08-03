@@ -1,7 +1,6 @@
 import '../styles/_navbar.scss';
 import { FiSearch, FiBell, FiChevronDown } from 'react-icons/fi';
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+
 
 
 export const Navbar = () => {
@@ -18,6 +17,7 @@ export const Navbar = () => {
         <a className="docs-link" href="#">Docs</a>
         <FiBell className="notifications" />
         <div className="profile">
+
           <img src="/images/avatar.png" alt="user" />
           <span className="name">Mishael</span>
           <FiChevronDown className="dropdown" />

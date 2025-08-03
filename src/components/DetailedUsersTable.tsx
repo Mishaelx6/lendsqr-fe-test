@@ -1,4 +1,4 @@
-import { FaFilter, FaEllipsisV, FaEye, FaUserSlash, FaUserCheck } from 'react-icons/fa';
+import { FaEllipsisV, FaEye, FaUserSlash, FaUserCheck } from 'react-icons/fa';
 
 type User = {
   email: string;
