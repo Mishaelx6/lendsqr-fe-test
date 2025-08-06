@@ -24,7 +24,15 @@ All major components have been unit-tested using:
 - [x] Dashboard
 - [x] UsersPage
 
-To run tests:
+
+
+
+- git repo https://github.com/Mishaelx6/lendsqr-fe-test
+
+- live view https://mishael-johnson-lendsqr-fe-test.vercel.app/login
+
 
 ```bash
 npm run test
+
+
