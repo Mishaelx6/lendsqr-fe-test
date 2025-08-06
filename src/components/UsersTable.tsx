@@ -1,4 +1,5 @@
-import '../styles/UserTable.scss';
+import { useState } from 'react';
+import '../styles/UserTableResponsive.scss';
 
 interface User {
   organization: string;
@@ -10,52 +11,73 @@ interface User {
 }
 
 const UsersTable = ({ users }: { users: User[] }) => {
+  const [expandedRows, setExpandedRows] = useState<number[]>([]);
+
+  const toggleRow = (index: number) => {
+    setExpandedRows((prev) =>
+      prev.includes(index)
+        ? prev.filter((i) => i !== index)
+        : [...prev, index]
+    );
+  };
+
   return (
     <div className="users-table">
       <div className="table-controls">
         <input type="text" placeholder="Search..." className="search-input" />
       </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Organization</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Date Joined</th>
-            <th>Status</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((u, i) => (
-            <tr key={i}>
-              <td>{u.organization}</td>
-              <td>{u.username}</td>
-              <td>{u.email}</td>
-              <td>{u.phone}</td>
-              <td>{u.dateJoined}</td>
-              <td>
-                <span className={`status ${u.status?.toLowerCase() || 'unknown'}`}>
-               {u.status || 'Unknown'}
-             </span>
-              </td>
-              <td>
-                <button
-                  onClick={() => {
-                    localStorage.setItem('selectedUser', JSON.stringify(u));
-                    window.location.href = '/users/:id';
-                  }}
-                  className="view-user-btn"
-                >
-                  View
-                </button>
-              </td>
+      {/* ✅ Wrap table in scroll container — NOT inside table */}
+      <div className="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Organization</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Date Joined</th>
+              <th>Status</th>
+              <th></th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {users.map((u, i) => {
+              const isExpanded = expandedRows.includes(i);
+              return (
+                <tr key={i} className={`table-row ${isExpanded ? 'expanded' : ''}`}>
+                  <td data-label="Organization">{u.organization}</td>
+                  <td data-label="Username">{u.username}</td>
+                  <td data-label="Email">{u.email}</td>
+                  <td data-label="Phone Number">{u.phone}</td>
+                  <td data-label="Date Joined">{u.dateJoined}</td>
+                  <td data-label="Status">
+                    <span className={`status ${u.status?.toLowerCase() || 'unknown'}`}>
+                      {u.status || 'Unknown'}
+                    </span>
+                  </td>
+                  <td>
+                    <button
+                      className="view-user-btn"
+                      onClick={() => {
+                        localStorage.setItem('selectedUser', JSON.stringify(u));
+                        window.location.href = '/users/:id';
+                      }}
+                    >
+                      View
+                    </button>
+
+                    {/* Toggle row on mobile */}
+                    <button className="toggle-details" onClick={() => toggleRow(i)}>
+                      {isExpanded ? '−' : '+'}
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
 
       <div className="table-footer">
         <div className="rows-info">Showing 1–{users.length} of {users.length}</div>

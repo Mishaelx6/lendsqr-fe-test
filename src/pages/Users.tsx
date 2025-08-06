@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Sidebar from '../components/SideBar'; 
 import Navbar from '../components/NavBar';
 import UserFilterSidebar from '../components/UserFilterSidebar';
-import DetailedUsersTable from '../components/DetailedUsersTable';
+import UsersTable from '../components/UsersTable';
 import { FaUserFriends, FaUsers, FaMoneyCheckAlt, FaPiggyBank } from 'react-icons/fa';
 
 import '../styles/main.scss';
@@ -29,10 +29,10 @@ const UsersPage = () => {
   }, []);
 
   return (
-    <div className="dashboard-layout">
+   <div className="dashboard-layout">
       <Sidebar />
-      <Navbar />
-      <main className="dashboard-content">
+      <main className="dashboard-content main-content">
+        <Navbar />
         <div className="scroll-body">
           <h2 className="dashboard-title">Users</h2>
 
@@ -59,7 +59,7 @@ const UsersPage = () => {
             </div>
           </div>
 
-          <div className="users-page-grid" style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+          <div className="users-page-grid">
             <UserFilterSidebar />
             <div className="users-table-wrapper" style={{ flex: 1 }}>
               <div className="table-header">
@@ -68,7 +68,7 @@ const UsersPage = () => {
                   <input type="text" placeholder="Search..." className="search-input" />
                 </div>
               </div>
-              <DetailedUsersTable users={users} />
+             <UsersTable users={users} />
             </div>
           </div>
         </div>

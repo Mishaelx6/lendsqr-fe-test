@@ -36,9 +36,11 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-layout">
+      <div className="layout">
       <Sidebar />
-      <Navbar />
-      <main className="dashboard-content">
+      
+      <main className="dashboard-content main-content ">
+        <Navbar />
         <div className="scroll-body">
           <h2 className="dashboard-title">Users</h2>
 
@@ -73,6 +75,7 @@ const Dashboard = () => {
           </div>
         </div>
       </main>
+    </div>
     </div>
   );
 };

@@ -18,6 +18,9 @@ const Login = () => {
 
   return (
     <div className="login">
+      <div className="login__mobile-logo">
+    <img src="/images/Group.svg" alt="Logo" />
+  </div>
       <div className="login__left">
         <img src="/images/Group.svg" alt="Logo" className="login__logo" />
         <img src="/images/pablo-sign-in 1.png" alt="Sign In Illustration" className="login__illustration" />

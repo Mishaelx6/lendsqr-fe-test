@@ -1,73 +1,131 @@
-@use './variables' as variables;
-
 .sidebar {
-  width: variables.$sidebar-width;
-  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #fff;
-  border-right: 1px solid #e5e5e5;
-  padding: 1.5rem 1.2rem;
+  height: 100%;
+  background: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  font-family: 'Inter', sans-serif;
-  z-index: 100;
-   overflow-y: auto;
-  overflow-x: hidden;
-   scrollbar-width: thin;
-  scrollbar-color: #ccc transparent;
 
-  .logo {
-    margin-bottom: 2rem;
+  &.closed {
+    width: 60px;
+  }
+
+  &.open {
+    width: 250px;
+  }
+
+  .drawer-handle {
+    position: absolute;
+    right: -20px;
+    top: 20px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    padding-left: 0.5rem;
+    justify-content: center;
+    font-weight: bold;
+    z-index: 1001;
+    transition: left 0.3s ease;
+  }
 
+  .sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+    padding-top: 20px;
+  }
+
+  .logo {
+    padding: 0 20px 20px;
     img {
-      height: 35px;
+      width: 140px;
     }
   }
 
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  .nav-content {
+    flex: 1;
+    padding: 0 10px;
+    overflow-y: auto;
+  }
 
-    .section-title {
-      font-size: 0.7rem;
-      color: #999;
-      font-weight: 500;
-      text-transform: uppercase;
-      margin-bottom: 0.2rem;
-      padding-left: 1rem;
-    }
+  .nav-group-title {
+    margin: 10px 0 5px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #999;
+  }
 
+  .nav-group {
     .nav-item {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      padding: 0.6rem 1rem;
-      font-size: 0.875rem;
-      color: #545f7d;
-      border-radius: 6px;
+      gap: 10px;
+      padding: 10px;
+      color: #333;
       cursor: pointer;
-      transition: background 0.2s ease;
+      transition: background 0.3s;
 
       svg {
-        font-size: 1.1rem;
-        color: inherit;
+        font-size: 18px;
       }
 
       &:hover {
-        background-color: #f5f7fd;
+        background: #e6f1ff;
+        color: #1a73e8;
       }
 
       &.active {
-        background-color: #e7efff;
-        color: #213f7d;
-        font-weight: 600;
+        background: #e6f1ff;
+        color: #1a73e8;
       }
     }
   }
+
+  &.mobile {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 1002;
+
+    &.open {
+      width: 250px;
+    }
+
+    &.closed {
+      width: 60px;
+    }
+
+    .sidebar-inner {
+      padding-top: 50px;
+    }
+  }
+
+  &.desktop.closed ~ .main {
+    margin-left: 60px;
+  }
+
+  &.desktop.open ~ .main {
+    margin-left: 250px;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 900;
 }

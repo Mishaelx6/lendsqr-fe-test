@@ -1,35 +1,34 @@
-
 const UserFilterSidebar = () => {
   return (
     <div className="user-filter-sidebar">
       <form>
         <div className="form-group">
-          <label>Organization</label>
-          <select>
+          <label htmlFor="organization">Organization</label>
+          <select id="organization">
             <option>Select</option>
             <option>Lendsqr</option>
             <option>Irorun</option>
           </select>
         </div>
         <div className="form-group">
-          <label>Username</label>
-          <input type="text" placeholder="Username" />
+          <label htmlFor="username">Username</label>
+          <input id="username" type="text" placeholder="Username" />
         </div>
         <div className="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="Email" />
+          <label htmlFor="email">Email</label>
+          <input id="email" type="email" placeholder="Email" />
         </div>
         <div className="form-group">
-          <label>Date</label>
-          <input type="date" />
+          <label htmlFor="date">Date</label>
+          <input id="date" type="date" />
         </div>
         <div className="form-group">
-          <label>Phone Number</label>
-          <input type="text" placeholder="Phone Number" />
+          <label htmlFor="phone">Phone Number</label>
+          <input id="phone" type="text" placeholder="Phone Number" />
         </div>
         <div className="form-group">
-          <label>Status</label>
-          <select>
+          <label htmlFor="status">Status</label>
+          <select id="status">
             <option>Select</option>
             <option>Active</option>
             <option>Inactive</option>

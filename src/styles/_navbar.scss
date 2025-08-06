@@ -3,18 +3,21 @@
 .navbar {
   position: fixed;
   top: 0;
-  left: $sidebar-width;
-  right: 0;
+  left: var(--sidebar-width, 50px);
+  width: calc(100% - var(--sidebar-width, 50px));
   height: $navbar-height;
   background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  z-index: 800;
+  z-index: 999;
+  transition: left 0.3s ease, width 0.3s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  backface-visibility: hidden;
+  transform: translateZ(0);
 
   .search-container {
-    margin-left: 2rem;
     display: flex;
     height: 40px;
     border: 1px solid #ccc;
@@ -85,6 +88,29 @@
         font-size: 1rem;
         color: #555;
         cursor: pointer;
+      }
+    }
+  }
+
+  // 📱 Responsive
+  @media (max-width: 768px) {
+    left: 60px; // closed sidebar width
+    width: calc(100% - 60px);
+    padding: 0 1rem;
+
+    .search-container input {
+      width: 140px;
+    }
+
+    .right-section {
+      gap: 1rem;
+
+      .docs-link {
+        display: none;
+      }
+
+      .name {
+        display: none;
       }
     }
   }

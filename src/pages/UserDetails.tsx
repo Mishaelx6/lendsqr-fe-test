@@ -28,8 +28,8 @@ const UserDetails = () => {
   return (
     <div className="dashboard-layout">
       <Sidebar />
-      <Navbar />
-      <main className="dashboard-content">
+      <main className="dashboard-content main-content">
+        <Navbar />
         <div className="scroll-body user-details-page">
           <button className="back-button" onClick={() => window.history.back()}>
             ← Back to Users

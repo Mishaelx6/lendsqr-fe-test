@@ -81,3 +81,17 @@
     }
   }
 }
+.layout {
+  display: flex;
+}
+
+.main-content {
+  margin-left: 50px;
+  padding: 2rem;
+  flex: 1;
+  transition: margin-left 0.3s ease;
+
+  // @media (max-width: 768px) {
+  //   margin-left: 0;
+  // }
+}
