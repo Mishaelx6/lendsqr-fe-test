@@ -70,7 +70,8 @@ const Dashboard = () => {
           <div className="user-table">
             <div className="table-header">
               <h3>Users Table</h3>
-              <UsersTable users={users} />
+             <UsersTable users={users} />
+              
             </div>
           </div>
         </div>

@@ -24,7 +24,7 @@ const UsersTable = ({ users }: { users: User[] }) => {
         <input type="text" placeholder="Search..." className="search-input" />
       </div>
 
-      <table className="desktop-table">
+      <table className="desktop-table ">
         <thead>
           <tr>
             <th>Organization</th>
